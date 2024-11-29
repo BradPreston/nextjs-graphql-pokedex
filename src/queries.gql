@@ -1,0 +1,21 @@
+query getAllPokemon {
+  getAllPokemon(offset: 93) {
+    num
+    species
+    types {
+      name
+    }
+  }
+}
+
+query getOnePokemon($number: Int!) {
+  getPokemonByDexNumber(number: $number) {
+    num
+    species
+    cry
+    evolutions {
+      num
+      species
+    }
+  }
+}
