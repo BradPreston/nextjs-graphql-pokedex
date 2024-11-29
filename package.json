@@ -11,14 +11,18 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.61.5",
+    "clsx": "^2.1.1",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.2",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.3",
+    "@graphql-codegen/client-preset": "4.5.1",
+    "@graphql-codegen/introspection": "4.0.3",
     "@tanstack/eslint-plugin-query": "^5.61.6",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -27,8 +31,6 @@
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5",
-    "@graphql-codegen/introspection": "4.0.3",
-    "@graphql-codegen/client-preset": "4.5.1"
+    "typescript": "^5"
   }
 }
