@@ -116,14 +116,6 @@ export default function AllPokemon() {
 					</Link>
 				</li>
 				<li>
-					<Link
-						href={`${pathname}?page=5`}
-						className="border-2 flex justify-center items-center w-8 h-8"
-					>
-						5
-					</Link>
-				</li>
-				<li>
 					<p>...</p>
 				</li>
 				<li>
@@ -159,19 +151,23 @@ export default function AllPokemon() {
 	}
 
 	return (
-		<div className="max-w-[1000px] px-8 mx-auto">
-			<div className="h-16 fixed left-0 top-0 w-full flex justify-center items-center z-50 bg-black bg-opacity-70 backdrop-blur-lg">
+		<div className="max-w-[1000px] px-8 mx-auto relative">
+			<div className="h-16 sticky top-0 w-full flex justify-center items-center z-50 bg-black bg-opacity-70 backdrop-blur-lg">
 				<form onSubmit={handleSubmit}>
 					<input
 						type="text"
-						className="text-zinc-800"
+						className="text-zinc-800 w-56 py-1 px-4 bg-white border-white border-2 rounded-tl-md rounded-bl-md"
 						defaultValue={searchParams.get('query')?.toString()}
 						name="query"
 					/>
-					<input type="submit" value="Search" />
+					<input
+						type="submit"
+						value="Search"
+						className="w-fit border-white border-2 py-1 px-8 rounded-tr-md rounded-br-md"
+					/>
 				</form>
 			</div>
-			<div className="flex flex-wrap gap-8 py-16">
+			<div className="flex flex-wrap gap-8 pb-16 justify-center">
 				{data.getAllPokemon
 					.filter(({ num, species }) => {
 						const currentNums = getPageURLParam() * POKEMON_PER_PAGE;
