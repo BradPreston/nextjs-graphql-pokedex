@@ -169,16 +169,16 @@ export default function AllPokemon() {
 			</div>
 			<div className="flex flex-wrap gap-8 pb-16 justify-center">
 				{data.getAllPokemon
-					.filter(({ num, species }) => {
+					.filter(
+						({ species }) =>
+							!species.includes('-') && species.includes(getQueryURLParam())
+					)
+					.filter(({ num }) => {
+						if (query) return num;
 						const currentNums = getPageURLParam() * POKEMON_PER_PAGE;
-
-						return (
-							!species.includes('-') &&
-							num <= currentNums &&
-							num > currentNums - POKEMON_PER_PAGE
-						);
+						return num <= currentNums && num > currentNums - POKEMON_PER_PAGE;
 					})
-					.filter(({ species }) => species.includes(getQueryURLParam()))
+
 					.map(({ species, num, types }, index) => (
 						<Link href={`/pokemon/${num}`} key={index}>
 							<Card name={species} types={types} id={num} />
