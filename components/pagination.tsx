@@ -37,7 +37,7 @@ export default function Pagination({ list, perPage }: Props) {
         pathname={pathname}
         disabled={pageParam === null}
       />
-      {currentPage <= 5 ? (
+      {currentPage < 5 ? (
         <>
           <PaginationListItem
             currentPage={currentPage}
@@ -122,10 +122,11 @@ function PaginationListItem({
     <li>
       <Link
         className={cn(
-          'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8',
-          currentPage === page ? 'bg-black text-white' : ''
+          'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8 hover:bg-black hover:text-white transition',
+          currentPage === page ? 'bg-black text-white pointer-events-none' : ''
         )}
         href={`${pathname}?page=${page}`}
+        title={`Go to page ${page}`}
       >
         {page}
       </Link>
@@ -169,10 +170,11 @@ function LeftArrow({
   return (
     <Link
       className={cn(
-        'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8',
+        'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8 hover:bg-black hover:text-white transition',
         disabled ? 'pointer-events-none border-zinc-300 text-zinc-300' : ''
       )}
       href={`${pathname}?page=${parseInt(page) - 1}`}
+      title={`Go to page ${parseInt(page) - 1}`}
     >
       &#10094;
     </Link>
@@ -192,10 +194,11 @@ function RightArrow({
     return (
       <Link
         className={cn(
-          'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8',
+          'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8hover:bg-black hover:text-white transition',
           disabled ? 'pointer-events-none border-zinc-300 text-zinc-300' : ''
         )}
         href={`${pathname}?page=2`}
+        title={`Go to page 2`}
       >
         &#10095;
       </Link>
@@ -205,10 +208,11 @@ function RightArrow({
   return (
     <Link
       className={cn(
-        'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8',
+        'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8 hover:bg-black hover:text-white transition',
         disabled ? 'pointer-events-none border-zinc-300 text-zinc-300' : ''
       )}
       href={`${pathname}?page=${parseInt(page) + 1}`}
+      title={`Go to page ${parseInt(page) + 1}`}
     >
       &#10095;
     </Link>
@@ -225,10 +229,11 @@ function PaginationStart({
   return (
     <Link
       className={cn(
-        'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8',
+        'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8 hover:bg-black hover:text-white transition',
         disabled ? 'pointer-events-none border-zinc-300 text-zinc-300' : ''
       )}
       href={`${pathname}`}
+      title='Go to first page'
     >
       &#10094;&#10094;
     </Link>
@@ -247,10 +252,11 @@ function PaginationEnd({
   return (
     <Link
       className={cn(
-        'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8',
+        'text-zinc-800 border-2 border-zinc-800 flex justify-center items-center w-8 h-8 hover:bg-black hover:text-white transition',
         disabled ? 'pointer-events-none border-zinc-300 text-zinc-300' : ''
       )}
       href={`${pathname}?page=${totalPages}`}
+      title='Go to last page'
     >
       &#10095;&#10095;
     </Link>
