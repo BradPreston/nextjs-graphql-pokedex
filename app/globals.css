@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
 	--background: #ffffff;
 	--foreground: #171717;
 }
@@ -12,16 +12,16 @@
 		--background: #0a0a0a;
 		--foreground: #ededed;
 	}
-}
+} */
 
 body {
-	color: var(--foreground);
-	background: var(--background);
-	font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
-	.upper-left-triangle {
-		clip-path: polygon(0 0, 100% 0, 0 100%);
-	}
+  .upper-left-triangle {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
 }
