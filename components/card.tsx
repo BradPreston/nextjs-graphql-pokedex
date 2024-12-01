@@ -69,7 +69,7 @@ function gradient(start: string, end: string) {
 export function Card({ name, types, id, className = '' }: Props) {
   const [imageError, setImageError] = useState(false);
   return (
-    <div className='bg-zinc-50 p-4 rounded-xl relative '>
+    <div className='bg-zinc-50 p-4 rounded-xl relative shadow-xl hover:shadow-md transition'>
       <p className='text-zinc-800 absolute top-4 left-4 z-10 font-bold'>
         #{id}
       </p>
